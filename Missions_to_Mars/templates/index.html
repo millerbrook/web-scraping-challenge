@@ -17,16 +17,16 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
 
-    <div class="row" id="craiglist-listings">
+    <div class="row">
       <div class="col-md-12">
         <h4 class="heading">{{mars_data.news_title}}</h4>
         <small>{{mars_data.news_para}}</small>
-        <h4 class="heading">{{mars_data.featured_image_url}}</h4>
-        <small>{{mars_data.tables_html}}</small>
-        <h4 class="heading">{{mars_data.hemispheres[0]}}</h4>
-        <small>{{mars_data.hemispheres[1]}}</small>
-        <h4 class="heading">{{mars_data.hemispheres[2]}}</h4>
-        <small>{{mars_data.hemispheres[3]}}</small>
+        <img src="{{mars_data.featured_image_url}}">
+        {{mars_data.tables_html}}
+        <img src="{{mars_data.hemispheres[0]}}">
+        <img src="{{mars_data.hemispheres[1]}}">
+        <img src="{{mars_data.hemispheres[2]}}">
+        <img src="{{mars_data.hemispheres[3]}}">
       </div>
     </div>
 
