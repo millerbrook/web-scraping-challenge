@@ -14,20 +14,19 @@
 
     <div class="jumbotron text-center">
       <h1>Mars Data Scraped from Various Websites</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Look at an Element!</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
 
-    <!-- Craigslist Listings -->
     <div class="row" id="craiglist-listings">
       <div class="col-md-12">
-        <h4 class="heading">{{scrape_dict.FIRST}}</h4>
-        <small>{{scrape_dict.SECOND}}</small>
-        <h4 class="heading">{{scrape_dict.THIRD}}</h4>
-        <small>{{scrape_dict.FOURTH}}</small>
-        <h4 class="heading">{{scrape_dict.FIFTH}}</h4>
-        <small>{{scrape_dict.SIXTH}}</small>
-        <h4 class="heading">{{scrape_dict.SEVENTH}}</h4>
-        <small>{{scrape_dict.SECOND}}</small>
+        <h4 class="heading">{{mars_data.news_title}}</h4>
+        <small>{{mars_data.news_para}}</small>
+        <h4 class="heading">{{mars_data.featured_image_url}}</h4>
+        <small>{{mars_data.tables_html}}</small>
+        <h4 class="heading">{{mars_data.hemispheres[0]}}</h4>
+        <small>{{mars_data.hemispheres[1]}}</small>
+        <h4 class="heading">{{mars_data.hemispheres[2]}}</h4>
+        <small>{{mars_data.hemispheres[3]}}</small>
       </div>
     </div>
 

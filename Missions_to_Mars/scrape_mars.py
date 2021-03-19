@@ -8,10 +8,10 @@ import pandas as pd
 def init_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
+    return browser
 
-
-# In[3]:
 def scrape():
+    browser = init_browser()
     scrape_dict = {}
     #Visit Nasa's Mars News Site
     url = 'https://mars.nasa.gov/news/'
@@ -88,5 +88,5 @@ def scrape():
         item_url = item['href']
         hemispheres.append({'img_url':item_url, 'title':title})
     scrape_dict['hemispheres'] = hemispheres
-    browser.quit
+    browser.quit()
     return scrape_dict
