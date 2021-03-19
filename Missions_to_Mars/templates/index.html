@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Scraped Mars Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mars Data Scraped from Various Websites</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Look at an Element!</a></p>
+    </div>
+
+    <!-- Craigslist Listings -->
+    <div class="row" id="craiglist-listings">
+      <div class="col-md-12">
+        <h4 class="heading">{{scrape_dict.FIRST}}</h4>
+        <small>{{scrape_dict.SECOND}}</small>
+        <h4 class="heading">{{scrape_dict.THIRD}}</h4>
+        <small>{{scrape_dict.FOURTH}}</small>
+        <h4 class="heading">{{scrape_dict.FIFTH}}</h4>
+        <small>{{scrape_dict.SIXTH}}</small>
+        <h4 class="heading">{{scrape_dict.SEVENTH}}</h4>
+        <small>{{scrape_dict.SECOND}}</small>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>

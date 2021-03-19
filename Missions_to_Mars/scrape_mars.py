@@ -12,6 +12,7 @@ def init_browser():
 
 # In[3]:
 def scrape():
+    scrape_dict = {}
     #Visit Nasa's Mars News Site
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
@@ -25,6 +26,8 @@ def scrape():
     para = result.find('div', class_='rollover_description_inner').text
     #print(para)
     #print(title)
+    scrape_dict['news_title']=title
+    scrape_dict['news_para'] = para
     #Begin scrape 2
     # Setup splinter
     #executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -39,6 +42,7 @@ def scrape():
     src = result['src']
 
     featured_image_url = url+"/"+src
+    scrape_dict['featured_image_url']=featured_image_url
     #print(featured_image_url)
     #Begin 3rd scrape (w/ Pandas)
     url = "https://space-facts.com/mars/"
@@ -47,6 +51,8 @@ def scrape():
     tables.reset_index(drop=True)
     tables_html = tables.to_html()
     tables_html
+    scrape_dict['tables_html'] = tables_html
+
     #Begin 4th Scrape
     url= 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
@@ -81,4 +87,6 @@ def scrape():
         title = result.find_all('h2', class_="title")[0].text
         item_url = item['href']
         hemispheres.append({'img_url':item_url, 'title':title})
+    scrape_dict['hemispheres'] = hemispheres
     browser.quit
+    return scrape_dict
