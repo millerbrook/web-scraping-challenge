@@ -7,8 +7,7 @@ import pandas as pd
 # Setup splinter
 def init_browser():
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
-    return browser
+    return Browser('chrome', **executable_path, headless=False)
 
 def scrape():
     browser = init_browser()
