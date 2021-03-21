@@ -50,7 +50,7 @@ def scrape():
     tables.reset_index(drop=True)
     tables_html = tables.to_html()
     tables_html
-    scrape_dict['tables_html'] = tables_html
+    scrape_dict['tables_html'] = tables
 
     #Begin 4th Scrape
     url= 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'

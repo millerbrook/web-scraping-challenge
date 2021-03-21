@@ -19,22 +19,26 @@
 
     <div class="row">
       <div class="col-md-12">
-        <h4 class="heading">{{mars_data.news_title}}</h4>
-        <small>{{mars_data.news_para}}</small>
+        <h4 class="heading">{{ mars_data.news_title }}</h4>
+        <small>{{ mars_data.news_para }}</small>
         <br>
         <p>{{mars_data.featured_image_url}}</p>
-        {{mars_data.tables_html}}</table>
+        <br>
+        <div>
+        {{mars_data.tables_html}}
+        </div>
+        <br>
         <p>{{mars_data.hemispheres[0]['img_url']}}</p>
         <p>{{mars_data.hemispheres[0]['title']}}</p>
         <br>
-          <p>{{mars_data.hemispheres[1]}}</p>
-          <p>{{mars_data.hemispheres[1][1]}}</p>
+          <p>{{mars_data.hemispheres[1]['img_url']}}</p>
+          <p>{{mars_data.hemispheres[1]['title']}}</p>
           <br>
-        <p>{{mars_data.hemispheres[2]}}</p>
-        <p>{{mars_data.hemispheres[2][1]}}</p>
+        <p>{{mars_data.hemispheres[2]['img_url']}}</p>
+        <p>{{mars_data.hemispheres[2]['title']}}</p>
         <br>
-        <p>{{mars_data.hemispheres[3]}}</p>
-        <p>{{mars_data.hemispheres[3][1]}}</p>
+        <p>{{mars_data.hemispheres[3]['img_url']}}</p>
+        <p>{{mars_data.hemispheres[3]['title']}}</p>
       </div>
     </div>
 
