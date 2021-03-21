@@ -25,7 +25,9 @@
         <p>{{mars_data.featured_image_url}}</p>
         <br>
         <div>
-        {{mars_data.tables_html}}
+        {% autoescape off %}
+        {{mars_data.tables_html|safe}}
+        {% endautoescape %}
         </div>
         <br>
         <p>{{mars_data.hemispheres[0]['img_url']}}</p>
