@@ -45,12 +45,12 @@ def scrape():
     #print(featured_image_url)
     #Begin 3rd scrape (w/ Pandas)
     url = "https://space-facts.com/mars/"
-    tables = pd.read_html(url)
+    tables = pd.read_html(url)[0]
     tables = pd.DataFrame(tables)
     tables.reset_index(drop=True)
     tables_html = tables.to_html()
     tables_html
-    scrape_dict['tables_html'] = tables
+    scrape_dict['tables_html'] = tables_html
 
     #Begin 4th Scrape
     url= 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
@@ -72,20 +72,34 @@ def scrape():
 
     #print(pic_list)
     #browser.quit
-    url = 'https://astrogeology.usgs.gov'
+    browser.quit()
+    executable_path = {'executable_path': ChromeDriverManager().install()}
+    browser = Browser('chrome', **executable_path, headless=False)
+    url= 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
+    browser.visit(url)html = browser.html
+    soup = BeautifulSoup(html, 'html.parser')
     hemispheres = []
-    for pic in pic_list:
-        #executable_path = {'executable_path': ChromeDriverManager().install()}
-        #browser = Browser('chrome', **executable_path, headless=False)
-        browser.visit(url + pic)
+    results = soup.find_all('div', class_="description")
+    click_list = []
+    for item in results:
+        pic_url = 'https://astrogeology.usgs.gov' + item.find_all('a')[0]['href']
+        click_list.append(pic_url)
+        title = item.find('h3').text
+        hemispheres.append({'title':title})
+
+    #print(hemispheres)
+    pic_list = []
+
+    for i, link in enumerate(click_list):
+        browser.visit(link)
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
-        result = soup.find('div', class_="container")
-        items = result.find_all('a')
-        item = items[2]
-        title = result.find_all('h2', class_="title")[0].text
-        item_url = item['href']
-        hemispheres.append({'img_url':item_url, 'title':title})
+        full_pic = soup.find('div', class_="container")
+        full_href = full_pic.find('img', class_='wide-image')
+        full_href = full_href['src']
+        full_href = 'https://astrogeology.usgs.gov/' + full_href
+        pic_list.append(full_href)
+        hemispheres[i]['img_url'] = full_href
     scrape_dict['hemispheres'] = hemispheres
     browser.quit()
     return scrape_dict
