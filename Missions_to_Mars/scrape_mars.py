@@ -40,14 +40,14 @@ def scrape():
     result = soup.find('img', class_="fade-in")
     src = result['src']
 
-    featured_image_url = url+"/"+src
+    featured_image_url = "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/"+src
     scrape_dict['featured_image_url']=featured_image_url
     #print(featured_image_url)
     #Begin 3rd scrape (w/ Pandas)
     url = "https://space-facts.com/mars/"
     tables = pd.read_html(url)[0]
     tables = pd.DataFrame(tables)
-    tables.reset_index(drop=True)
+    #tables.reset_index(drop=True)
     tables_html = tables.to_html()
     tables_html
     scrape_dict['tables_html'] = tables_html
