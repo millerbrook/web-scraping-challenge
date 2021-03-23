@@ -76,7 +76,8 @@ def scrape():
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
     url= 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    browser.visit(url)html = browser.html
+    browser.visit(url)
+    html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
     hemispheres = []
     results = soup.find_all('div', class_="description")
