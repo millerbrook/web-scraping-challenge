@@ -62,7 +62,6 @@ def scrape():
     result = soup.find('div', class_="collapsible results")
     items = result.find_all('div', class_='item')
 
-    #print(items)
     #Create list for individual pictures urls and loop through 'items'
     pic_list = []
     for item in items:
@@ -70,8 +69,7 @@ def scrape():
         pic_url = link['href']
         pic_list.append(pic_url)
 
-    #print(pic_list)
-    #browser.quit
+    #Go to individual pages for hemisphere photos and grab urls to append to dictionary
     browser.quit()
     executable_path = {'executable_path': ChromeDriverManager().install()}
     browser = Browser('chrome', **executable_path, headless=False)
@@ -88,7 +86,6 @@ def scrape():
         title = item.find('h3').text
         hemispheres.append({'title':title})
 
-    #print(hemispheres)
     pic_list = []
 
     for i, link in enumerate(click_list):
