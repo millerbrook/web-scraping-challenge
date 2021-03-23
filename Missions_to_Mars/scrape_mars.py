@@ -47,7 +47,7 @@ def scrape():
     url = "https://space-facts.com/mars/"
     tables = pd.read_html(url)[0]
     tables = pd.DataFrame(tables)
-    #tables.reset_index(drop=True)
+    tables.set_index(0)
     tables_html = tables.to_html()
     tables_html
     scrape_dict['tables_html'] = tables_html

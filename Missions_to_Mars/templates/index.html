@@ -12,32 +12,34 @@
 <body>
   <div class="container">
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center container">
       <h4>Mars Data Scraped from Various Websites</h4>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
 
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-sm-4">
         <h3>Featured Mars News</h3>
         <h4 class="heading">{{ mars_data.news_title }}</h4>
         <small>{{ mars_data.news_para }}</small>
-        <br>
-        <h3>Featured Mars Image from Nasa</h3>
-        <img src= "{{ mars_data.featured_image_url }}">
       </div>
-      <div class="col-md-6">
-          <h3> Mars News Table</h3>
+      <div class='col-sm-4'> 
+        <h3>Featured Mars Image from Nasa</h3>
+        <img src= "{{ mars_data.featured_image_url }}" style="width: 100%; height: auto;">
+      </div>
+      <div class="col-sm-4">
+          <h3> Mars Data Table</h3>
         <!-- {% autoescape off %} -->
         {{mars_data.tables_html|safe}}
         <!-- {% endautoescape %} -->
       </div>
-      <br>
-      
     </div>
-    <div class = 'row'>
-        <h3>Mars Hemispheres</h3>
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class = 'row'>
+        <div class="col-md-12">
+          <h3>Mars Hemispheres</h3>
+        </div>
+      <div class = 'row'>
+        <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img class="d-block w-100 img-fluid" src='{{ mars_data.hemispheres[0]["img_url"] }}' alt="First slide">
@@ -72,21 +74,23 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
           </a>
-        </div>
-        <!-- <img src='{{ mars_data.hemispheres[0]["img_url"] }}'>
-        <p>{{mars_data.hemispheres[0]['title']}}</p>
-        <br>
-          <img src="{mars_data.hemispheres[1]['img_url']}}">
-          <p>{{mars_data.hemispheres[1]['title']}}</p>
+        </div> -->
+        <div class = 'col-md-6'>
+          <img src='{{ mars_data.hemispheres[0]["img_url"] }}' style="width: 50%; height: auto;">
+          <p>{{mars_data.hemispheres[0]['title']}}</p>
           <br>
-        <img src="{{mars_data.hemispheres[2]['img_url']}}">
-        <p>{{mars_data.hemispheres[2]['title']}}</p>
-        <br>
-        <img src="{{mars_data.hemispheres[3]['img_url']}}">
-        <p>{{mars_data.hemispheres[3]['title']}}</p> -->
+            <img src="{{mars_data.hemispheres[1]['img_url']}}" style="width: 50%; height: auto;">
+            <p>{{mars_data.hemispheres[1]['title']}}</p>
+            <br>
+        </div>
+        <div class = 'col-md-6'>
+          <img src="{{mars_data.hemispheres[2]['img_url']}}" style="width: 50%; height: auto;">
+          <p>{{mars_data.hemispheres[2]['title']}}</p>
+          <br>
+          <img src="{{mars_data.hemispheres[3]['img_url']}}" style="width: 50%; height: auto;">
+        <p>{{mars_data.hemispheres[3]['title']}}</p>
       </div>
     </div>
-
   </div>
 </body>
 
