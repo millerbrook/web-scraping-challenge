@@ -22,24 +22,27 @@
         <h4 class="heading">{{ mars_data.news_title }}</h4>
         <small>{{ mars_data.news_para }}</small>
         <br>
-        <p>{{mars_data.featured_image_url}}</p>
+        <h3>Featured Mars Image from Nasa</h3>
+        <img src= "{{ mars_data.featured_image_url }}">
         <br>
         <div>
+        <h3> Mars News Table</h3>
         <!-- {% autoescape off %} -->
         {{mars_data.tables_html|safe}}
         <!-- {% endautoescape %} -->
         </div>
         <br>
-        <p>{{mars_data.hemispheres[0]['img_url']}}</p>
+        <h3>Mars Hemispheres</h3>
+        <img src='{{ mars_data.hemispheres[0]["img_url"] }}'>
         <p>{{mars_data.hemispheres[0]['title']}}</p>
         <br>
-          <p>{{mars_data.hemispheres[1]['img_url']}}</p>
+          <img src="{mars_data.hemispheres[1]['img_url']}}">
           <p>{{mars_data.hemispheres[1]['title']}}</p>
           <br>
-        <p>{{mars_data.hemispheres[2]['img_url']}}</p>
+        <img src="{{mars_data.hemispheres[2]['img_url']}}">
         <p>{{mars_data.hemispheres[2]['title']}}</p>
         <br>
-        <p>{{mars_data.hemispheres[3]['img_url']}}</p>
+        <img src="{{mars_data.hemispheres[3]['img_url']}}">
         <p>{{mars_data.hemispheres[3]['title']}}</p>
       </div>
     </div>
